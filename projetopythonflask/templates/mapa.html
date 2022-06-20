@@ -1,0 +1,68 @@
+{% extends 'layout.html' %}
+
+{% block title %}Cidade Universal{% endblock %}
+
+{% block content %}
+<h2>Cidade Universal</h2>
+<div>
+
+    <table>
+
+        <tr>
+            <td><marquee>Dica: texto dá dica</marquee></td>
+        </tr>
+
+    </table>
+
+</div>
+
+
+
+<h2>Comercio Local</h2>
+<div>
+
+    <table>
+
+        <tr>
+            <td><a href="{{ url_for('lojacomerciante') }}"><button>Comerciante</button></a> - [ Compra e Venda de Utilidades ] </td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('lojaferreiro') }}"><button>Ferreiro</button></a> - [ Compra e Forja de Itens ] </td>
+        </tr>
+        <tr>
+           <td> <a href="{{ url_for('lojataverna') }}"><button>Taverna</button></a> - [ Compra de Bebidas ou Alimentos, Descanso, Chat ] </td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('masmorras') }}"><button>Leilão</button></a> - [ Venda ] </td>
+            
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('masmorras') }}"><button>Casas</button></a> - [ Entre em sua casa ou Compre uma ] </td>
+
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('masmorras') }}"><button>Igreja</button></a> - [ Casamento ] </td>
+        </tr>
+        <tr>
+            <td><a href="{{ url_for('masmorras') }}"><button>Arena</button></a> - [ Jogador x Jogador, Precisa de Ticket]</td>
+
+        </tr>
+
+
+    </table>
+
+</div>
+
+<h2>Arredores</h2>
+
+<div>
+
+    <table>
+        <tr>
+            <td><a href="{{ url_for('arredores') }}"><button>Explorar Arredores</button></a> - [Nivel: 1 ao 99]</td>
+        </tr>
+    </table>
+
+</div>
+
+{% endblock %}

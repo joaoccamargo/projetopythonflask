@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>{% block title %}{% endblock %}</title>
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+		<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css">
+	</head>
+	<body class="loggedin">
+		<nav class="navtop">
+			<div>
+	
+				<h1>MasmorowRPG</h1>		
+                <a href="{{ url_for('inicio') }}"><i class="fas fa-home"></i>Inicio</a>
+				<a href="{{ url_for('mapa') }}"><i class="fas fa-map"></i>Mapa</a> 
+				<a href="{{ url_for('batalhaandamento') }}"><i class="fas fa-user"></i>Batalha</a>       
+				<a href="{{ url_for('personagem') }}"><i class="fas fa-user"></i>Personagem</a> 
+                <a href="{{ url_for('loja') }}"><i class="fas fa-shopping-basket"></i>Loja de Ouro</a>
+			
+				<a href="{{ url_for('logout') }}"><i class="fas fa-sign-out-alt"></i>Sair</a>
+			</div>
+		</nav>
+		<div class="content">
+			{% block content %}{% endblock %}
+		</div>
+	</body>
+</html>

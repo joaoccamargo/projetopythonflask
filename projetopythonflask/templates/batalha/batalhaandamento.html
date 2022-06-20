@@ -1,0 +1,38 @@
+{% extends 'layout.html' %}
+
+{% block title %}Andamento{% endblock %}
+
+{% block content %}
+
+<h2>Batalhas:</h2>
+<div>
+    {% if contas['area_max'] == 0 %}
+    <p>Não há batalha em andamento.</p>
+    {% endif %}
+    {% for monstro in log_monstros %}
+    <table>
+        <tr>
+            <td><img src="../static/img/monstros/{{ monstro['nome_monstro'] }}.gif" height="64px" width="64px">  </td>       
+            
+        </tr>
+        
+        <tr>
+            {% if monstro['vida'] >= 1 %}
+            <td> {{ monstro['nome_monstro'].capitalize() }} - Vida:{{ monstro['vida'] }} - <a href="{{ url_for('atacar', item_id=monstro['id']) }}"><button>Atacar</button></a></td>
+            
+            {% endif %}
+           <td></td>
+        </tr>
+        <tr>{% if contas['area_max'] == 0 and  monstro['recompensa'] == 1%}
+            <td><a href="{{ url_for('atacar', item_id=monstro['id']) }}"><button>Recompensa</button></a></td>
+            {% endif %}</tr>
+      
+    </table>
+    {% endfor %}
+    
+
+</div>
+
+
+
+{% endblock %}

@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Arredores{% endblock %}
+
+{% block content %}
+<h2>Monstros nos Arredores</h2>
+ 
+<div>
+
+{% for monstro in monstros %}
+{% if monstro['area'] == 0 %}
+<table>
+    <tr>
+        <td><img src="../static/img/monstros/{{ monstro['nome_monstro'] }}.gif" height="64px" width="64px">  </td>       
+        <td> Nivel:{{ monstro['nivel'] }}</td>
+    </tr>
+    <tr>
+        <td> {{ monstro['nome_monstro'].capitalize() }}</td>
+        
+       <td><a href="{{ url_for('batalhar', item_id=monstro['id']) }}"><button>Batalhar</button></a></td>
+
+    </tr>
+  
+</table>
+{% endif %}
+
+{% endfor %}
+
+</div>
+{% endblock %}

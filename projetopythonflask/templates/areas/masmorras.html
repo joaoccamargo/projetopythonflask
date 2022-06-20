@@ -1,0 +1,44 @@
+{% extends 'layout.html' %}
+
+{% block title %}Batalha{% endblock %}
+
+{% block content %}
+
+<h2>Batalha Ativa</h2>
+
+<div>
+    <table>
+        <tr>
+            <td alt="teste"> Você está em Masmorra Nivel {{ contas['area'] }} </td>
+            <td>Nivel Completo {{ contas['area_max'] }} </td>
+        </tr>
+
+        
+    </table>
+
+</div>
+
+<div>
+    {% for monstro in monstros %}
+        <table>
+            <tr>
+                <td><{{ msgbox5 }}></td>
+            </tr>
+            <tr>
+                <td>{{ monstro['nome_monstro'].capitalize() }} Nivel: {{ monstro['nivel'] }}</td>
+            </tr>
+            <tr>
+                <td>Vida: {{ monstro['vida'] }}</td>
+            </tr>
+
+            <tr>
+                <td><a href="{{ url_for('batalha') }}" title=''><button>Atacar</button></a> ou <a href="{{ url_for('batalha') }}" title=''><button>Defender</button></a> </td>
+            </tr>
+            
+        </table>
+    {% endfor %}
+
+
+
+{% endblock %}
+</div>

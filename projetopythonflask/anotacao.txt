@@ -1,0 +1,29 @@
+Recompensa Diaria
+Conquistas por Ouro
+Eventos
+Leilão venda para outros e autovenda
+Casas (Estoque)
+Igreja (Casamento (Bonus))
+Itens iniciais: roupa rasgada, toco de madeira, tocha.
+Arena PvP apenas com ticket PvP
+
+
+
+
+combate ação, exemplo botão (atacar, defender) cada botão seria uma função
+combate ativo
+
+
+
+
+if em_batalha == 1 and vida >= 1:
+    caso batalha precisa ser igual a 1 e a vida precisa ser maior ou igual a 
+
+
+
+else: se não for...
+    executa 
+    
+    
+    
+     cursor.execute(f"DELETE FROM log_monstros WHERE id_usuario = %s", (session['id'],))

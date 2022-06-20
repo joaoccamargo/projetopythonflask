@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Loja Ouro{% endblock %}
+
+{% block content %}
+<h2>Loja Ouro</h2>
+ 
+<div>
+
+{% for itens in loja %}
+{% if itens['loja_tipo'] == 0 %}
+<table>
+    <tr>
+        <td><img src="../static/img/itens/{{ itens['produto'] }}.gif" height="32px" width="32px"> {{ itens['produto'].capitalize() }} </td>       
+        <td>{{ itens['preco'] }} Ouro </td>
+        
+    </tr>
+    <tr>
+        <td>{{ itens['desc'] }} ATQ:{{ itens['bonus_ataque'] }} - DEF:{{ itens['bonus_defesa'] }} - raridade: {{ itens['raridade'] }}</td>
+        <td><a href="{{ url_for('comprou', item_id=itens['id']) }}"><button>Comprar</button></a></td>
+    </tr>
+
+    
+   
+</table>
+{% endif %}
+{% endfor %}
+
+</div>
+{% endblock %}

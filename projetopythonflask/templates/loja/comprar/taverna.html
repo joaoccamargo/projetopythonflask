@@ -1,0 +1,30 @@
+{% extends 'layout.html' %}
+
+{% block title %}Taverna{% endblock %}
+
+{% block content %}
+<h2>Taverna</h2>
+<p><a href="{{ url_for('loja') }}"><button>Comprar</button></a> <a href="{{ url_for('loja') }}"><button>Chat</button></a> <a href="{{ url_for('loja') }}"><button>Descansar</button></a> <a href="{{ url_for('mapa') }}"><button>Sair</button></a></p> 
+<div>
+
+{% for itens in loja %}
+{% if itens['loja_tipo'] == 3 %}
+<table>
+    <tr>
+        <td><img src="../static/img/itens/{{ itens['produto'] }}.gif" height="32px" width="32px"> {{ itens['produto'].capitalize() }} </td>       
+        <td>{{ itens['preco'] }} Prata </td>
+        
+    </tr>
+    <tr>
+        <td>{{ itens['desc'] }} ATQ:{{ itens['bonus_ataque'] }} - DEF:{{ itens['bonus_defesa'] }} - raridade: {{ itens['raridade'] }}</td>
+        <td><a href="{{ url_for('comprou', item_id=itens['id']) }}"><button>Comprar</button></a></td>
+    </tr>
+
+    
+   
+</table>
+{% endif %}
+{% endfor %}
+
+</div>
+{% endblock %}

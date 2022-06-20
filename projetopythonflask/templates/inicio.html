@@ -1,0 +1,13 @@
+{% extends 'layout.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+{% for n in novidades%}
+<h2>{{ n['titulo'] }} - {{ n['data'] }}</h2>
+<p>{{ n['texto'] }}</p>
+
+{%endfor%}
+
+{% endblock %}

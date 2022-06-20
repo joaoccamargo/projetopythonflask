@@ -1,0 +1,113 @@
+{% extends 'layout.html' %}
+
+{% block title %}Bolsa{% endblock %}
+
+{% block content %}
+<div>
+    <table>
+        <tr>
+            <td> <img src="../static/img/pers/guerreiro.gif" height="100px" width="65px"></td>
+        </tr>
+        <tr>
+            <td>Usuário: {{ contas['usuario'] }}</td>
+        </tr>
+        <tr>
+            <td>Nível: {{ contas['nivel'] }} </td>
+        </tr>
+        <tr>
+            <td>Exp: {{ contas['exp'] }}%</td>
+        </tr>
+        <tr>
+            <td> Vida: {{ contas['vida'] }} / {{ contas['vida_max'] }} {% if contas['total_pontos'] > 0 %}<a href="{{ url_for('addvida')}}" title="Adicionar em Vida"><button>+</button></a> {% endif %} </td>
+        </tr>
+        <tr>
+            <td>Energia: {{ contas['energia'] }}  / {{ contas['energia_max'] }} {% if contas['total_pontos'] > 0 %}<a href="{{ url_for('addener')}}" title="Adicionar em Energia"><button>+</button></a> {% endif %} </td>
+        </tr>
+        <tr>
+            <td>Ataque: {{ contas['ataque'] }} {% if contas['total_pontos'] > 0 %} <a href="{{ url_for('addataque')}}" title="Adicionar em Ataque"><button>+</button></a> {% endif %} </td>
+        </tr>
+        <tr>
+            <td>Defesa: {{ contas['defesa'] }} {% if contas['total_pontos'] > 0 %} <a href="{{ url_for('adddefesa')}}" title="Adicionar em Defesa"><button>+</button></a> {% endif %} </td>
+        </tr>
+        <tr>
+            <td>Pontos de Atributos: {{ contas['total_pontos'] }}</td>
+        </tr>
+        <tr>
+            <td>Adicionais:</td>
+        </tr>
+        <tr>
+            <td>Bonus Ataque: {{ contas['b_ataque'] }}</td>
+        </tr>
+        <tr>
+            <td>Bonus Defesa: {{ contas['b_defesa'] }}</td>
+        </tr>
+    
+        
+        
+    </table>
+  
+   
+    
+    
+    
+</div>
+<h2>Meu Equipamento: </h2>
+<div>
+    <table>
+        <tr>
+            <td><img src="../static/img/itens/{{ contas['capacete_eqp'] }}.gif" title="Capacete: {{ contas['capacete_eqp'].capitalize() }}" height="32px" width="32px">  
+            <img src="../static/img/itens/{{ contas['peitoral_eqp'] }}.gif" title="Peitoral: {{ contas['peitoral_eqp'].capitalize() }}" height="32px" width="32px">      
+            <img src="../static/img/itens/{{ contas['calca_eqp'] }}.gif" title="Calça: {{ contas['calca_eqp'].capitalize() }}" height="32px" width="32px">  
+            <img src="../static/img/itens/{{ contas['botas_eqp'] }}.gif" title="Botas: {{ contas['botas_eqp'].capitalize() }}" height="32px" width="32px"> 
+            <img src="../static/img/itens/{{ contas['arma_eqp'] }}.gif" title="Arma: {{ contas['arma_eqp'].capitalize() }}" height="32px" width="32px"> </td>
+        </tr>
+        <tr>
+            <td><img src="../static/img/itens/{{ contas['colar_eqp'] }}.gif" title="Colar: {{ contas['colar_eqp'].capitalize() }}" height="32px" width="32px"> 
+            <img src="../static/img/itens/{{ contas['anel_eqp'] }}.gif" title="Anel: {{ contas['anel_eqp'].capitalize() }}" height="32px" width="32px">  </td>
+        </tr>
+        <tr>
+            <td><img src="../static/img/itens/{{ contas['mascote_eqp'] }}.gif" title="Mascote: {{ contas['mascote_eqp'].capitalize() }}" height="32px" width="32px">   
+            <img src="../static/img/itens/{{ contas['montaria_eqp'] }}.gif" title="Montaria: {{ contas['montaria_eqp'].capitalize() }}" height="32px" width="32px"> </td>
+        </tr>
+        <tr>
+            <td>
+            <img src="../static/img/itens/{{ contas['magia1_eqp'] }}.gif" title="Magia: {{ contas['magia1_eqp'].capitalize() }}" height="32px" width="32px">      
+            <img src="../static/img/itens/{{ contas['magia2_eqp'] }}.gif" title="Magia: {{ contas['magia2_eqp'].capitalize() }}" height="32px" width="32px"> 
+            <img src="../static/img/itens/{{ contas['magia3_eqp'] }}.gif" title="Magia: {{ contas['magia3_eqp'].capitalize() }}" height="32px" width="32px">
+            </td>
+        </tr>
+        <tr>
+            <td>
+            <img src="../static/img/itens/bolsa.gif" title="Bolsa Max: {{ contas['max_bolsa']  }}" height="32px" width="32px"> -
+            <img src="../static/img/itens/prata.gif" title="Prata: {{ contas['total_prata'] }}" height="32px" width="32px"> -
+            <img src="../static/img/itens/ouro.png" title="Ouro: {{ contas['total_ouro'] }}" height="32px" width="32px"> 
+            </td>
+        </tr>
+    </table>
+   
+</div>
+
+<h2>Minha Bolsa:</h2>
+<div>
+    
+    {% for itens in bolsa %}
+    <table>
+        <tr>
+            <td><img src="../static/img/itens/{{ itens['nome_item'] }}.gif" title="{{ itens['nome_item'].capitalize() }}" height="32px" width="32px"> {{ itens['nome_item'].capitalize() }} </td>
+            <td><a href="{{ url_for('usar', item_id=itens['id']) }}"><button>Usar</button></a> </td>
+            
+        </tr>
+        <tr>
+            <td>{{ itens['desc'].capitalize() }} - ATQ: {{ itens['bonus_ataque'] }} - DEF: {{ itens['bonus_defesa'] }} </td>
+            <td><a href="{{ url_for('remover', item_id=itens['id']) }}"><button>Remover</button></a>  </td>
+        </tr>
+    
+        
+    </table>
+    {% endfor %}
+
+</div>
+
+
+
+{% endblock %}

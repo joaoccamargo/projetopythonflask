@@ -1,0 +1,28 @@
+{% extends 'layout.html' %}
+
+{% block title %}Inicio{% endblock %}
+
+{% block content %}
+
+<h2>Resumo de Batalha</h2>
+
+<div>
+    <a href="{{ url_for('batalhaandamento') }}"><button>Sair</button></a>
+<table>
+    <tr>
+        <td><{{ dialogo3 }}></td>
+    </tr>
+    <tr>
+        <td>{{ dialogo }}</td>
+    </tr>
+    <tr>
+        <td>{{ dialogo2 }}</td>
+    </tr>
+    <tr>
+        <td> <{{botao}}> {{botao2}} </{{botao3}}> </td>
+    </tr>
+
+</table>
+</div>
+
+{% endblock %}
